@@ -1,26 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div :class="isActive ? 'theme-dark' : 'theme-light'">
+    <MainHeader :isActive="isActive" @toggle="toggleActive" />
+    <HelloWorld />
+    <MainFooter />
+    {{isActive}}
+  </div>
 </template>
 
 <script>
+import MainHeader from './components/layout/MainHeader.vue'
+import MainFooter from './components/layout/MainFooter.vue'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
+    MainHeader,
+    MainFooter,
     HelloWorld
+  },
+  data() {
+    return {
+      isActive: false
+    };
+  },
+  methods: {
+    toggleActive() {
+      this.isActive = !this.isActive;
+    }
   }
-}
-</script>
+};
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+</script>

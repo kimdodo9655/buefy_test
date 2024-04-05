@@ -1,0 +1,59 @@
+/* layout */
+@media screen and (max-width: 1023px) {
+    .container.is-fluid {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+}
+
+/* light mode set */
+html:has(div[class="theme-light"]),
+[data-theme=light],
+.theme-light {
+    background-color: #FFFFFF !important;
+}
+
+/* dark mode set */
+html:has(div[class="theme-dark"]),
+[data-theme=dark],
+.theme-dark {
+    background-color: #181B20 !important;
+}
+
+/* Navbar burger icon 오류 수정 */
+
+.navbar-burger span:nth-child(1) {
+    top: calc(50% - 6px);
+}
+
+.navbar-burger.is-active span:nth-child(2) {
+    top: calc(50% - 6px);
+    transform: rotate(45deg);
+    opacity: 1;
+}
+
+@media screen and (max-width: 1023px) {
+    .navbar-menu > *{
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .navbar-menu {
+        transition: .5s;
+        display: grid;
+        height: 0;
+        padding: 0;
+      }
+
+      
+    .navbar-menu.is-active > *{
+        overflow: auto;
+      }
+
+    .navbar-menu.is-active {
+        display: grid;
+        /* height: 286px; */
+        height: calc(100vh - 52px);
+        padding: 0.5rem 0;
+      }
+}
